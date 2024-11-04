@@ -13,3 +13,8 @@ def random_choice(choices: Sequence[T]) -> Generator[T, None, None]:
 def sequence(options: Sequence[T]) -> Generator[T, None, None]:
     for item in options:
         yield item
+
+
+def single_int(value: int) -> Generator[int, None, None]:
+    while True:
+        yield value

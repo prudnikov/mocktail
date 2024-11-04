@@ -1,31 +1,42 @@
 import builtins
 import inspect
-from inspect import isclass
+import logging
+import sys
 
-from mocktail import fields
 from mocktail.fields.base_field import Field
 from mocktail.fields.int import Int
 from mocktail.fields.str import Str
 
 
+logger = logging.getLogger(__name__)
+
+
 def create_fields_for_model(model: type):
-    _fields = {}
     # Fields defined directly on model
+    logger.debug("Model class %s", model)
+
+    _fields1 = {}
     for key, val in model.__dict__.items():
         if isinstance(val, Field):
-            _fields[key] = val
+            _fields1[key] = val
+    logger.debug("Fields defined directly on model %s", _fields1)
 
     # Create fields from annotated fields
+    _fields2 = {}
     for key, val in inspect.get_annotations(model).items():
         match val:
             case builtins.int:
-                _fields[key] = Int()
+                _fields2[key] = Int()
             case builtins.str:
-                _fields[key] = Str()
+                _fields2[key] = Str()
             case _:
-                print(f"{key} type is unknown")
+                logger.warning(
+                    f"{key} has unknown type {val}. This field will be ignored."
+                )
 
-    return _fields
+    logger.debug("Fields defined as annotations on model %s", _fields2)
+
+    return {**_fields1, **_fields2}
 
 
 class ModelMetaclass(type):
