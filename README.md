@@ -107,3 +107,24 @@ Provider that generates color as hex number like #F342E1.
 
 ### `mocktail.providers.UuidV4Provider`
 Provider that generates a random UUID v4. 
+
+# IDEAS
+
+### Formatters
+
+```python
+import os
+from mocktail import mocktail
+
+
+class User:
+    ...
+
+
+os.environ['MT_DEFAULT_FORMATTER'] = 'mocktail.formatters.JsonlFormatter'
+#os.environ['MT_DEFAULT_FORMATTER'] = 'mocktail.formatters.ParquetFormatter'
+
+with open('file.jsonl', 'w') as f:
+    f.write(mocktail(User, quantity=100))
+    # f.write(mocktail(User, quantity=100, formatter=JsonlFormatter))
+```

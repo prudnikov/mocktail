@@ -1,0 +1,42 @@
+[project]
+name = "mocktail"
+version = "0.1.0"
+description = "Python data mocking package"
+authors = [
+    {name = "Vladimir Prudnikov",email = "v.prudnikov@gmail.com"},
+]
+dependencies = [
+    "faker>=30.8.2",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm]
+distribution = true
+
+[tool.pdm.scripts.test]
+shell = "pytest"
+
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "pytest>=8.1.1",
+    "black>=24.3.0",
+    "isort>=5.13.2",
+    "pydantic>=2.7.0",
+]
+
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 79
+target-version = ['py311']
