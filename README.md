@@ -8,8 +8,7 @@ Python data mocking package. It can be used in
 It allows you to define data models similar to how Django or Pydantic models are defined and generate data that follows the that model.
 
 > [!WARNING]
-> Once I started preparing to publish this package to PyPi I realized that this name is taken, so this package will 
-> be renamed soon. I'm still looking for a nice name for it, if you have any ideas please share here #4
+> When I started preparing to publish this package to PyPi, I found out the name was already taken, so I’ll be renaming it soon. I’m still searching for a good name—if you have any ideas, please share them in  https://github.com/prudnikov/mocktail/issues/4
 
 ## Examples
 
