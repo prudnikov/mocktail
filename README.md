@@ -13,7 +13,7 @@ This package lets you define data models in a way similar to Django or Pydantic 
 
 ## Examples
 
-See the playground.ipynb for examples.
+See the [playground.ipynb](./playground.ipynb) for examples.
 
 ## Fields (WIP)
 
