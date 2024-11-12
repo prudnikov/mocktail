@@ -1,5 +1,4 @@
 import typing
-from typing import Protocol
 
 
 class Model(Mockable[typing.Any]):

@@ -1,5 +1,4 @@
 import random
-from collections.abc import Iterator
 from typing import ClassVar
 
 from mocktail.providers import StrProvider, random_str
