@@ -1,11 +1,12 @@
 # mocktail
-Python data mocking package. It can be used in 
+Python data mocking package that can be used for:
+
 * Unit testing
 * Data quality testing
-* Mocking data for API response 
-* Generating seed data for the database
+* Mocking data for API responses
+* Generating seed data for databases
 
-It allows you to define data models similar to how Django or Pydantic models are defined and generate data that follows the that model.
+This package lets you define data models in a way similar to Django or Pydantic models and generate data that conforms to those models.
 
 > [!WARNING]
 > When I started preparing to publish this package to PyPi, I found out the name was already taken, so I’ll be renaming it soon. I’m still searching for a good name—if you have any ideas, please share them in  https://github.com/prudnikov/mocktail/issues/4
