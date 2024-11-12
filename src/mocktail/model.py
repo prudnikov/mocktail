@@ -1,12 +1,10 @@
 import builtins
 import inspect
 import logging
-import sys
 
 from mocktail.fields.base_field import Field
 from mocktail.fields.int import Int
 from mocktail.fields.str import Str
-
 
 logger = logging.getLogger(__name__)
 

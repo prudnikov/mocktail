@@ -1,5 +1,4 @@
 import logging
-import random
 from typing import ClassVar
 
 from mocktail import serializers

@@ -1,8 +1,8 @@
-import json
 from typing import Any, Collection, Final
+
 import sqlalchemy as sa
-from sqlalchemy.sql.expression import values
 from sqlalchemy.dialects import postgresql
+from sqlalchemy.sql.expression import values
 
 __all__ = ["SqlCte"]
 

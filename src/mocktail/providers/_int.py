@@ -1,8 +1,7 @@
-import decimal
 import random
 import sys
-from typing import TypeAlias, ClassVar
 from collections.abc import Generator, Iterator
+from typing import TypeAlias, ClassVar
 
 __all__ = ["IntProvider", "random_int", "Age"]
 

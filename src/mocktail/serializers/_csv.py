@@ -1,11 +1,10 @@
 import csv
-import json
 import pathlib
 import tempfile
 import typing
-from io import StringIO, FileIO
-from os import supports_effective_ids
+from io import StringIO
 from typing import Any, Collection, Final
+
 from ._serializer import Serializer
 
 __all__ = ["CsvString", "CsvFile"]
