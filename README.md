@@ -1,36 +1,21 @@
 # mocktail
-Python data mocking package. It can be used in 
+Python data mocking package that can be used for:
+
 * Unit testing
 * Data quality testing
-* Mocking data for API response 
-* Generating seed data for the database
+* Mocking data for API responses
+* Generating seed data for databases
 
-It allows you to define data models similar to how Django or Pydantic models are defined and generate data that follows the that model.
+This package lets you define data models in a way similar to Django or Pydantic models and generate data that conforms to those models.
+
+> [!WARNING]
+> When I started preparing to publish this package to PyPi, I found out the name was already taken, so I’ll be renaming it soon. I’m still searching for a good name—if you have any ideas, please share them in  https://github.com/prudnikov/mocktail/issues/4
 
 ## Examples
 
-```python
-import random
-from mocktail import providers, models, fields, mocktail
+See the [playground.ipynb](./playground.ipynb) for up to date examples.
 
-
-class NameProvider(providers.Provider[str]):
-    def provide(self, *args, **kwargs) -> str:
-        return random.choice(["John", "Martin", "Peter", "Gary"])
-
-    
-class User(models.Model):
-    first_name = fields.Str(min_length=3, max_length=20, provider=NameProvider)
-    age = fields.Int(min_value=18, max_length=120)
-
-    
-users = mocktail(User, quantity=1000)
-
-# [{"first_name": "Martin", "age": 23}, {"first_name": "Gary", "age": 41}, {"first_name": "John", "age": 62}, ...]
-
-```
-
-## Fields
+## Fields (WIP)
 
 ### `mocktail.fields.Int`
 Generates a random integer value within a specified range using `random.randint` function by default.
@@ -107,24 +92,3 @@ Provider that generates color as hex number like #F342E1.
 
 ### `mocktail.providers.UuidV4Provider`
 Provider that generates a random UUID v4. 
-
-# IDEAS
-
-### Formatters
-
-```python
-import os
-from mocktail import mocktail
-
-
-class User:
-    ...
-
-
-os.environ['MT_DEFAULT_FORMATTER'] = 'mocktail.formatters.JsonlFormatter'
-#os.environ['MT_DEFAULT_FORMATTER'] = 'mocktail.formatters.ParquetFormatter'
-
-with open('file.jsonl', 'w') as f:
-    f.write(mocktail(User, quantity=100))
-    # f.write(mocktail(User, quantity=100, formatter=JsonlFormatter))
-```

@@ -18,3 +18,8 @@ def sequence(options: Sequence[T]) -> Generator[T, None, None]:
 def single_int(value: int) -> Generator[int, None, None]:
     while True:
         yield value
+
+
+def random_range_int(start: int, end: int) -> Generator[int, None, None]:
+    while True:
+        yield random.randint(start, end)
